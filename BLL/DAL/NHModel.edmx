@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NewhireDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="EntryID" Type="int" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="MaidenName" Type="varchar" MaxLength="50" />
+          <Property Name="Address_1" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="Address_2" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Zip" Type="varchar" MaxLength="6" />
+          <Property Name="TimeAtAddr" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="15" />
+          <Property Name="SSN" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="Felony" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="FelonyExplanation" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="HasDrivingLicense" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="NoDL_Acknowledgement" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="ArmedForces" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="AFBranch" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NationalGuard" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="NationalGuardSpecialty" Type="varchar" MaxLength="100" />
+          <Property Name="IsFirstEmployment" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="IsPrevEmployee" Type="varchar" MaxLength="4" />
+          <Property Name="PrevEmployeeDetails" Type="varchar" MaxLength="250" />
+          <Property Name="HasSpecialLicense" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="SpecialLicDetails" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ContactPrevEmployer" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="IsSelf_CompletedApp" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="AppCompletedBy" Type="varchar" MaxLength="50" />
+          <Property Name="App_status" Type="int" />
+          <Property Name="AppDate" Type="date" Nullable="false" />
+          <Property Name="Job" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ApplicationWaiver">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" />
+          <Property Name="ApplicantSignature" Type="varchar" MaxLength="50" />
+          <Property Name="SignatureDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DrivingLicense">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" />
+          <Property Name="DL_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DL_State" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DL_Type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DL_ExpirationDate" Type="date" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmploymentRecord">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Division" Type="varchar" MaxLength="50" />
+          <Property Name="PaycheckDelivery" Type="varchar" MaxLength="15" />
+          <Property Name="CheckDeliveryLocation" Type="varchar" MaxLength="25" />
+          <Property Name="PaystubDeliveryLoc" Type="varchar" MaxLength="20" />
+          <Property Name="HireDate" Type="varchar" MaxLength="50" />
+          <Property Name="Provide_EEO" Type="varchar" MaxLength="5" />
+          <Property Name="EEO_Gender" Type="varchar" MaxLength="10" />
+          <Property Name="EEO_Ethnicity" Type="varchar" MaxLength="50" />
+          <Property Name="Benefits_Medical" Type="varchar" MaxLength="5" />
+          <Property Name="Benefits_Dental" Type="varchar" MaxLength="5" />
+          <Property Name="Benefits_Supplemental" Type="varchar" MaxLength="5" />
+          <Property Name="Benefits_Life" Type="varchar" MaxLength="5" />
+          <Property Name="Benefits_401K" Type="varchar" MaxLength="5" />
+          <Property Name="JobLocal" Type="varchar" MaxLength="30" />
+          <Property Name="HomeLocal" Type="varchar" MaxLength="30" />
+          <Property Name="CardNumber" Type="varchar" MaxLength="30" />
+          <Property Name="Trade" Type="varchar" MaxLength="30" />
+          <Property Name="Classification" Type="varchar" MaxLength="30" />
+          <Property Name="ApprenticeYear" Type="varchar" MaxLength="10" />
+          <Property Name="ApprenticeRate" Type="varchar" MaxLength="10" />
+          <Property Name="OtherClassification" Type="varchar" MaxLength="30" />
+          <Property Name="IsReferralAttached" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="EmploymentScreening">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" />
+          <Property Name="FelonyOrMisdemeanor" Type="varchar" MaxLength="5" />
+          <Property Name="FelonyOrMisdemeanorDesc" Type="varchar" MaxLength="150" />
+          <Property Name="ApplicantSignature" Type="varchar" MaxLength="50" />
+          <Property Name="SignatureDate" Type="varchar" MaxLength="50" />
+          <Property Name="OtherLastName" Type="varchar" MaxLength="50" />
+          <Property Name="ScreenerID" Type="int" />
+        </EntityType>
+        <EntityType Name="PreEmpDrugTest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" />
+          <Property Name="ApplicantSignature" Type="varchar" MaxLength="50" />
+          <Property Name="SignatureDate" Type="varchar" MaxLength="50" />
+          <Property Name="HasAgreed" Type="varchar" MaxLength="50" />
+          <Property Name="Witness" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PreviousEmployer">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationID" Type="varchar" MaxLength="50" />
+          <Property Name="EmployerName" Type="varchar" MaxLength="50" />
+          <Property Name="BusinessAddress" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="4" />
+          <Property Name="Zip" Type="varchar" MaxLength="10" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="Supervisor" Type="varchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="ReasonForLeaving" Type="varchar" MaxLength="250" />
+          <Property Name="JobDuties" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ScreeningCompany">
+          <Key>
+            <PropertyRef Name="ScreenerID" />
+          </Key>
+          <Property Name="ScreenerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="120" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="char" MaxLength="10" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+        </EntityType>
+        <Association Name="FK_ApplicationWaiver_Application1">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="ApplicationWaiver" Type="Self.ApplicationWaiver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="ApplicationWaiver">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DrivingLicense_Application1">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="DrivingLicense" Type="Self.DrivingLicense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="DrivingLicense">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploymentRecord_Application1">
+          <End Role="Application" Type="Self.Application" Multiplicity="1" />
+          <End Role="EmploymentRecord" Type="Self.EmploymentRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="EmploymentRecord">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploymentScreening_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="EmploymentScreening" Type="Self.EmploymentScreening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="EmploymentScreening">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploymentScreening_ScreeningCompany">
+          <End Role="ScreeningCompany" Type="Self.ScreeningCompany" Multiplicity="0..1" />
+          <End Role="EmploymentScreening" Type="Self.EmploymentScreening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScreeningCompany">
+              <PropertyRef Name="ScreenerID" />
+            </Principal>
+            <Dependent Role="EmploymentScreening">
+              <PropertyRef Name="ScreenerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreEmpDrugTest_Application1">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="PreEmpDrugTest" Type="Self.PreEmpDrugTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="PreEmpDrugTest">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousEmployer_Application1">
+          <End Role="Application" Type="Self.Application" Multiplicity="0..1" />
+          <End Role="PreviousEmployer" Type="Self.PreviousEmployer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="PreviousEmployer">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_Get_Job_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="NewhireDBModelStoreContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationWaiver" EntityType="Self.ApplicationWaiver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DrivingLicense" EntityType="Self.DrivingLicense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmploymentRecord" EntityType="Self.EmploymentRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmploymentScreening" EntityType="Self.EmploymentScreening" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreEmpDrugTest" EntityType="Self.PreEmpDrugTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreviousEmployer" EntityType="Self.PreviousEmployer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScreeningCompany" EntityType="Self.ScreeningCompany" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ApplicationWaiver_Application1" Association="Self.FK_ApplicationWaiver_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="ApplicationWaiver" EntitySet="ApplicationWaiver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DrivingLicense_Application1" Association="Self.FK_DrivingLicense_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="DrivingLicense" EntitySet="DrivingLicense" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploymentRecord_Application1" Association="Self.FK_EmploymentRecord_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="EmploymentRecord" EntitySet="EmploymentRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploymentScreening_Application" Association="Self.FK_EmploymentScreening_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="EmploymentScreening" EntitySet="EmploymentScreening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploymentScreening_ScreeningCompany" Association="Self.FK_EmploymentScreening_ScreeningCompany">
+            <End Role="ScreeningCompany" EntitySet="ScreeningCompany" />
+            <End Role="EmploymentScreening" EntitySet="EmploymentScreening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreEmpDrugTest_Application1" Association="Self.FK_PreEmpDrugTest_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="PreEmpDrugTest" EntitySet="PreEmpDrugTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousEmployer_Application1" Association="Self.FK_PreviousEmployer_Application1">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="PreviousEmployer" EntitySet="PreviousEmployer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NewhireDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ScreeningCompany">
+          <Key>
+            <PropertyRef Name="ScreenerID" />
+          </Key>
+          <Property Name="ScreenerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="EmploymentScreenings" Relationship="NewhireDBModel.FK_EmploymentScreening_ScreeningCompany" FromRole="ScreeningCompany" ToRole="EmploymentScreening" />
+        </EntityType>
+        <EntityContainer Name="NewhireDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ScreeningCompanies" EntityType="Self.ScreeningCompany" />
+          <FunctionImport Name="usp_Get_Job_List" ReturnType="Collection(NewhireDBModel.usp_Get_Job_List_Result)" />
+          <EntitySet Name="ApplicationWaivers" EntityType="NewhireDBModel.ApplicationWaiver" />
+          <EntitySet Name="DrivingLicenses" EntityType="NewhireDBModel.DrivingLicense" />
+          <EntitySet Name="EmploymentRecords" EntityType="NewhireDBModel.EmploymentRecord" />
+          <EntitySet Name="PreEmpDrugTests" EntityType="NewhireDBModel.PreEmpDrugTest" />
+          <EntitySet Name="PreviousEmployers" EntityType="NewhireDBModel.PreviousEmployer" />
+          <EntitySet Name="EmploymentScreenings" EntityType="NewhireDBModel.EmploymentScreening" />
+          <AssociationSet Name="FK_EmploymentScreening_ScreeningCompany" Association="NewhireDBModel.FK_EmploymentScreening_ScreeningCompany">
+            <End Role="ScreeningCompany" EntitySet="ScreeningCompanies" />
+            <End Role="EmploymentScreening" EntitySet="EmploymentScreenings" />
+          </AssociationSet>
+          <EntitySet Name="Applications" EntityType="NewhireDBModel.Application" />
+          <AssociationSet Name="FK_ApplicationWaiver_Application1" Association="NewhireDBModel.FK_ApplicationWaiver_Application1">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="ApplicationWaiver" EntitySet="ApplicationWaivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DrivingLicense_Application1" Association="NewhireDBModel.FK_DrivingLicense_Application1">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="DrivingLicense" EntitySet="DrivingLicenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploymentRecord_Application1" Association="NewhireDBModel.FK_EmploymentRecord_Application1">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="EmploymentRecord" EntitySet="EmploymentRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploymentScreening_Application" Association="NewhireDBModel.FK_EmploymentScreening_Application">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="EmploymentScreening" EntitySet="EmploymentScreenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreEmpDrugTest_Application1" Association="NewhireDBModel.FK_PreEmpDrugTest_Application1">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="PreEmpDrugTest" EntitySet="PreEmpDrugTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousEmployer_Application1" Association="NewhireDBModel.FK_PreviousEmployer_Application1">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="PreviousEmployer" EntitySet="PreviousEmployers" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="usp_Get_Job_List_Result">
+          <Property Type="String" Name="Job" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <EntityType Name="ApplicationWaiver">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SignatureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="NewhireDBModel.FK_ApplicationWaiver_Application1" FromRole="ApplicationWaiver" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="DrivingLicense">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DL_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DL_State" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DL_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DL_ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="NewhireDBModel.FK_DrivingLicense_Application1" FromRole="DrivingLicense" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="EmploymentRecord">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaycheckDelivery" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CheckDeliveryLocation" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PaystubDeliveryLoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Provide_EEO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="EEO_Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EEO_Ethnicity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Benefits_Medical" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Benefits_Dental" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Benefits_Supplemental" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Benefits_Life" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Benefits_401K" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="JobLocal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HomeLocal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Trade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Classification" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ApprenticeYear" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ApprenticeRate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OtherClassification" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsReferralAttached" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="NewhireDBModel.FK_EmploymentRecord_Application1" FromRole="EmploymentRecord" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="PreEmpDrugTest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SignatureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HasAgreed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Witness" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="NewhireDBModel.FK_PreEmpDrugTest_Application1" FromRole="PreEmpDrugTest" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="PreviousEmployer">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="ReasonForLeaving" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="JobDuties" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Application" Relationship="NewhireDBModel.FK_PreviousEmployer_Application1" FromRole="PreviousEmployer" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="EmploymentScreening">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FelonyOrMisdemeanor" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FelonyOrMisdemeanorDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicantSignature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SignatureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ScreenerID" Type="Int32" />
+          <NavigationProperty Name="ScreeningCompany" Relationship="NewhireDBModel.FK_EmploymentScreening_ScreeningCompany" FromRole="EmploymentScreening" ToRole="ScreeningCompany" />
+          <NavigationProperty Name="Application" Relationship="NewhireDBModel.FK_EmploymentScreening_Application" FromRole="EmploymentScreening" ToRole="Application" />
+        </EntityType>
+        <Association Name="FK_EmploymentScreening_ScreeningCompany">
+          <End Type="NewhireDBModel.ScreeningCompany" Role="ScreeningCompany" Multiplicity="0..1" />
+          <End Type="NewhireDBModel.EmploymentScreening" Role="EmploymentScreening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScreeningCompany">
+              <PropertyRef Name="ScreenerID" />
+            </Principal>
+            <Dependent Role="EmploymentScreening">
+              <PropertyRef Name="ScreenerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="EntryID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaidenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address_1" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Address_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="TimeAtAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SSN" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Felony" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="FelonyExplanation" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="HasDrivingLicense" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NoDL_Acknowledgement" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ArmedForces" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="AFBranch" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NationalGuard" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NationalGuardSpecialty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsFirstEmployment" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IsPrevEmployee" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PrevEmployeeDetails" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="HasSpecialLicense" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialLicDetails" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPrevEmployer" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IsSelf_CompletedApp" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="AppCompletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="App_status" Type="Int32" />
+          <Property Name="AppDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Job" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApplicationWaivers" Relationship="NewhireDBModel.FK_ApplicationWaiver_Application1" FromRole="Application" ToRole="ApplicationWaiver" />
+          <NavigationProperty Name="DrivingLicenses" Relationship="NewhireDBModel.FK_DrivingLicense_Application1" FromRole="Application" ToRole="DrivingLicense" />
+          <NavigationProperty Name="EmploymentRecords" Relationship="NewhireDBModel.FK_EmploymentRecord_Application1" FromRole="Application" ToRole="EmploymentRecord" />
+          <NavigationProperty Name="EmploymentScreenings" Relationship="NewhireDBModel.FK_EmploymentScreening_Application" FromRole="Application" ToRole="EmploymentScreening" />
+          <NavigationProperty Name="PreEmpDrugTests" Relationship="NewhireDBModel.FK_PreEmpDrugTest_Application1" FromRole="Application" ToRole="PreEmpDrugTest" />
+          <NavigationProperty Name="PreviousEmployers" Relationship="NewhireDBModel.FK_PreviousEmployer_Application1" FromRole="Application" ToRole="PreviousEmployer" />
+        </EntityType>
+        <Association Name="FK_ApplicationWaiver_Application1">
+          <End Type="NewhireDBModel.Application" Role="Application" Multiplicity="0..1" />
+          <End Type="NewhireDBModel.ApplicationWaiver" Role="ApplicationWaiver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="ApplicationWaiver">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DrivingLicense_Application1">
+          <End Type="NewhireDBModel.Application" Role="Application" Multiplicity="0..1" />
+          <End Type="NewhireDBModel.DrivingLicense" Role="DrivingLicense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="DrivingLicense">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploymentRecord_Application1">
+          <End Type="NewhireDBModel.Application" Role="Application" Multiplicity="1" />
+          <End Type="NewhireDBModel.EmploymentRecord" Role="EmploymentRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="EmploymentRecord">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploymentScreening_Application">
+          <End Type="NewhireDBModel.Application" Role="Application" Multiplicity="0..1" />
+          <End Type="NewhireDBModel.EmploymentScreening" Role="EmploymentScreening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="EmploymentScreening">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreEmpDrugTest_Application1">
+          <End Type="NewhireDBModel.Application" Role="Application" Multiplicity="0..1" />
+          <End Type="NewhireDBModel.PreEmpDrugTest" Role="PreEmpDrugTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="PreEmpDrugTest">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousEmployer_Application1">
+          <End Type="NewhireDBModel.Application" Role="Application" Multiplicity="0..1" />
+          <End Type="NewhireDBModel.PreviousEmployer" Role="PreviousEmployer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="ApplicationID" />
+            </Principal>
+            <Dependent Role="PreviousEmployer">
+              <PropertyRef Name="ApplicationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NewhireDBModelStoreContainer" CdmEntityContainer="NewhireDBContext">
+          <EntitySetMapping Name="ScreeningCompanies">
+            <EntityTypeMapping TypeName="NewhireDBModel.ScreeningCompany">
+              <MappingFragment StoreEntitySet="ScreeningCompany">
+                <ScalarProperty Name="ScreenerID" ColumnName="ScreenerID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_Get_Job_List" FunctionName="NewhireDBModel.Store.usp_Get_Job_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NewhireDBModel.usp_Get_Job_List_Result">
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ApplicationWaivers">
+            <EntityTypeMapping TypeName="NewhireDBModel.ApplicationWaiver">
+              <MappingFragment StoreEntitySet="ApplicationWaiver">
+                <ScalarProperty Name="SignatureDate" ColumnName="SignatureDate" />
+                <ScalarProperty Name="ApplicantSignature" ColumnName="ApplicantSignature" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DrivingLicenses">
+            <EntityTypeMapping TypeName="NewhireDBModel.DrivingLicense">
+              <MappingFragment StoreEntitySet="DrivingLicense">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DL_ExpirationDate" ColumnName="DL_ExpirationDate" />
+                <ScalarProperty Name="DL_Type" ColumnName="DL_Type" />
+                <ScalarProperty Name="DL_State" ColumnName="DL_State" />
+                <ScalarProperty Name="DL_Number" ColumnName="DL_Number" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmploymentRecords">
+            <EntityTypeMapping TypeName="NewhireDBModel.EmploymentRecord">
+              <MappingFragment StoreEntitySet="EmploymentRecord">
+                <ScalarProperty Name="IsReferralAttached" ColumnName="IsReferralAttached" />
+                <ScalarProperty Name="OtherClassification" ColumnName="OtherClassification" />
+                <ScalarProperty Name="ApprenticeRate" ColumnName="ApprenticeRate" />
+                <ScalarProperty Name="ApprenticeYear" ColumnName="ApprenticeYear" />
+                <ScalarProperty Name="Classification" ColumnName="Classification" />
+                <ScalarProperty Name="Trade" ColumnName="Trade" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="HomeLocal" ColumnName="HomeLocal" />
+                <ScalarProperty Name="JobLocal" ColumnName="JobLocal" />
+                <ScalarProperty Name="Benefits_401K" ColumnName="Benefits_401K" />
+                <ScalarProperty Name="Benefits_Life" ColumnName="Benefits_Life" />
+                <ScalarProperty Name="Benefits_Supplemental" ColumnName="Benefits_Supplemental" />
+                <ScalarProperty Name="Benefits_Dental" ColumnName="Benefits_Dental" />
+                <ScalarProperty Name="Benefits_Medical" ColumnName="Benefits_Medical" />
+                <ScalarProperty Name="EEO_Ethnicity" ColumnName="EEO_Ethnicity" />
+                <ScalarProperty Name="EEO_Gender" ColumnName="EEO_Gender" />
+                <ScalarProperty Name="Provide_EEO" ColumnName="Provide_EEO" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="PaystubDeliveryLoc" ColumnName="PaystubDeliveryLoc" />
+                <ScalarProperty Name="CheckDeliveryLocation" ColumnName="CheckDeliveryLocation" />
+                <ScalarProperty Name="PaycheckDelivery" ColumnName="PaycheckDelivery" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreEmpDrugTests">
+            <EntityTypeMapping TypeName="NewhireDBModel.PreEmpDrugTest">
+              <MappingFragment StoreEntitySet="PreEmpDrugTest">
+                <ScalarProperty Name="Witness" ColumnName="Witness" />
+                <ScalarProperty Name="HasAgreed" ColumnName="HasAgreed" />
+                <ScalarProperty Name="SignatureDate" ColumnName="SignatureDate" />
+                <ScalarProperty Name="ApplicantSignature" ColumnName="ApplicantSignature" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreviousEmployers">
+            <EntityTypeMapping TypeName="NewhireDBModel.PreviousEmployer">
+              <MappingFragment StoreEntitySet="PreviousEmployer">
+                <ScalarProperty Name="JobDuties" ColumnName="JobDuties" />
+                <ScalarProperty Name="ReasonForLeaving" ColumnName="ReasonForLeaving" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="BusinessAddress" ColumnName="BusinessAddress" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmploymentScreenings">
+            <EntityTypeMapping TypeName="NewhireDBModel.EmploymentScreening">
+              <MappingFragment StoreEntitySet="EmploymentScreening">
+                <ScalarProperty Name="ScreenerID" ColumnName="ScreenerID" />
+                <ScalarProperty Name="OtherLastName" ColumnName="OtherLastName" />
+                <ScalarProperty Name="SignatureDate" ColumnName="SignatureDate" />
+                <ScalarProperty Name="ApplicantSignature" ColumnName="ApplicantSignature" />
+                <ScalarProperty Name="FelonyOrMisdemeanorDesc" ColumnName="FelonyOrMisdemeanorDesc" />
+                <ScalarProperty Name="FelonyOrMisdemeanor" ColumnName="FelonyOrMisdemeanor" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="NewhireDBModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="AppDate" ColumnName="AppDate" />
+                <ScalarProperty Name="App_status" ColumnName="App_status" />
+                <ScalarProperty Name="AppCompletedBy" ColumnName="AppCompletedBy" />
+                <ScalarProperty Name="IsSelf_CompletedApp" ColumnName="IsSelf_CompletedApp" />
+                <ScalarProperty Name="ContactPrevEmployer" ColumnName="ContactPrevEmployer" />
+                <ScalarProperty Name="SpecialLicDetails" ColumnName="SpecialLicDetails" />
+                <ScalarProperty Name="HasSpecialLicense" ColumnName="HasSpecialLicense" />
+                <ScalarProperty Name="PrevEmployeeDetails" ColumnName="PrevEmployeeDetails" />
+                <ScalarProperty Name="IsPrevEmployee" ColumnName="IsPrevEmployee" />
+                <ScalarProperty Name="IsFirstEmployment" ColumnName="IsFirstEmployment" />
+                <ScalarProperty Name="NationalGuardSpecialty" ColumnName="NationalGuardSpecialty" />
+                <ScalarProperty Name="NationalGuard" ColumnName="NationalGuard" />
+                <ScalarProperty Name="AFBranch" ColumnName="AFBranch" />
+                <ScalarProperty Name="ArmedForces" ColumnName="ArmedForces" />
+                <ScalarProperty Name="NoDL_Acknowledgement" ColumnName="NoDL_Acknowledgement" />
+                <ScalarProperty Name="HasDrivingLicense" ColumnName="HasDrivingLicense" />
+                <ScalarProperty Name="FelonyExplanation" ColumnName="FelonyExplanation" />
+                <ScalarProperty Name="Felony" ColumnName="Felony" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TimeAtAddr" ColumnName="TimeAtAddr" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address_2" ColumnName="Address_2" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="MaidenName" ColumnName="MaidenName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
