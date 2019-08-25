@@ -57,6 +57,14 @@
     {
       "library": "font-awesome@5.9.0",
       "destination": "lib/font-awesome/"
+    },
+    {
+      "library": "materialize@1.0.0",
+      "destination": "Content/materialize/"
+    },
+    {
+      "library": "angular-material-icons@0.7.1",
+      "destination": "Content/angular-material-icons/"
     }
   ]
 }

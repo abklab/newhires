@@ -7,8 +7,52 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/mdbootstrap/css/mdb.css" rel="stylesheet" />
+    <link href="~/Content/materialize/css/materialize.css" rel="stylesheet" />
     <link href="~/Content/jqueryui/jquery-ui.css" rel="stylesheet" />
     <link href="~/Content/font-awesome/css/fontawesome.css" rel="stylesheet" />
+   
+
+    <style>
+
+        .phoneFormat {
+            font-family: 'Comic Sans MS',Calibri,Arial;
+            font-weight: bold;
+        }
+
+        .nextForm {
+            float: right !important;
+            background-color: purple;
+        }
+
+        .previousForm {
+            float: left !important;
+           background-color:purple;
+        }
+
+        .saveForm {
+            float: right !important;
+        }
+        .dateFormat {
+        }
+
+        .ssnmask {
+        }
+
+        fieldset {
+            display: none;
+        }
+
+      
+        .md-form label {
+            font-size: .8rem;
+            color: #007bff
+        }
+
+        .md-form .form-control {
+            padding-bottom: 0rem;
+        }
+    </style>
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -42,9 +86,12 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/inputmask")
     <script src="~/Content/mdbootstrap/js/mdb.js"></script>
-    <script src="~/Content/jqueryui/jquery-ui.js"></script>
+    <script src="~/Content/materialize/js/materialize.js"></script>
+    <script src="~/Scripts/inputmask/inputmask.js"></script>
+    @*<script src="~/Content/jqueryui/jquery-ui.js"></script>*@
     <script src="~/Content/font-awesome/js/fontawesome.js"></script>
     <script src="~/Content/font-awesome/js/solid.js"></script>
+    <script src="~/appjs/app.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -138,14 +138,18 @@
     <Compile Include="Controllers\ApplicationFormController.cs" />
     <Compile Include="Controllers\DriversLicenseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PreviousEmployerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationVM.cs" />
     <Compile Include="Models\DriversLicense.cs" />
+    <Compile Include="Models\PreviousEmployer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appjs\app.js" />
+    <Content Include="appjs\applicationform.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -232,6 +236,10 @@
     <Content Include="Content\jqueryui\themes\cupertino\jquery-ui.min.css" />
     <Content Include="Content\jqueryui\themes\cupertino\theme.css" />
     <Content Include="Content\jqueryui\themes\cupertino\theme.min.css" />
+    <Content Include="Content\materialize\css\materialize.css" />
+    <Content Include="Content\materialize\css\materialize.min.css" />
+    <Content Include="Content\materialize\js\materialize.js" />
+    <Content Include="Content\materialize\js\materialize.min.js" />
     <Content Include="Content\mdbootstrap\css\mdb.css" />
     <Content Include="Content\mdbootstrap\css\mdb.lite.css" />
     <Content Include="Content\mdbootstrap\css\mdb.lite.min.css" />
@@ -420,6 +428,8 @@
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\ApplicationForm\Create.cshtml" />
     <Content Include="Views\DriversLicense\Create.cshtml" />
+    <Content Include="Views\PreviousEmployer\AddPreviousEmployer.cshtml" />
+    <Content Include="Views\PreviousEmployer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

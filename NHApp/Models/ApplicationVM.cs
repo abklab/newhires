@@ -11,6 +11,7 @@ namespace NHApp.Models
 
         [Required(ErrorMessage = "Enter your First name"), DisplayName("First Name")]
         public string FirstName { get; set; }
+
         [Required(ErrorMessage = "Enter your Last name"), DisplayName("Last Name")]
         public string LastName { get; set; }
 

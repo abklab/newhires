@@ -34,6 +34,11 @@ namespace NHApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult AddPreviousEmployer()
+        {
+            return PartialView("PreviousEmployer/AddPreviousEmployer");
+        }
         // POST: ApplicationForm/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)

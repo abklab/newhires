@@ -7,572 +7,728 @@
 <span class="h3">NEWHIRE APPLICATION FORM</span>
 
 
-@using (Html.BeginForm())
-{
+<form id="formApplicationForm">
     @Html.AntiForgeryToken()
 
-    <div style="width:45rem">
+    <div style="">
         <h4>ApplicationVM</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="card">
-            <div class="card-header">
-                Employee Details
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+        <!--Employee name-->
+        <fieldset style="display:block" id="employeeName">
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">1. Employee Details</span>
                 </div>
-                <div class="row">
-                    <div class="col-md">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label" })
+                <div class="card-body">
 
-                            @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.MaidenName, htmlAttributes: new { @class = "control-label" })
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
 
-                            @Html.EditorFor(model => model.MaidenName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MaidenName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.SSN, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.SSN, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger" })
-                        </div>
-
-                    </div>
-                    <div class="col-md">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
-        <hr />
-        <div class="card">
-            <div class="card-header">
-                Home Address
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.Address_1, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.Address_1, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Address_1, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.Address_2, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.Address_2, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Address_2, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.TimeAtAddr, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.TimeAtAddr, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TimeAtAddr, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.CellPhone, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.CellPhone, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.CellPhone, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
-        <hr />
-        <div class="card">
-            <div class="card-header">
-                Driving License/ Convictions
-            </div>
-            <div class="card-body">
-                <div class="row ">
-
-                    <div class="col-9">
-                        <label> Have ever been convicted of Felony or Misdemeanor ?</label>
-                    </div>
-                    <div class="col">
-                        <!-- Default inline 1-->
-                        <div class="custom-control custom-radio custom-control-inline">
-
-                            <input type="radio" class="custom-control-input" id="rbYes" name="Felony" required>
-                            <label class="custom-control-label" for="rbYes">
-                                Yes
-                            </label>
-                        </div>
-                        <!-- Default inline 2-->
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="rbNo" name="Felony">
-                            <label class="custom-control-label" for="rbNo">
-                                No
-                            </label>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.FelonyExplanation, htmlAttributes: new { @class = "control-label" })
-
-                            @Html.TextAreaFor(model => model.FelonyExplanation, new { @class = "md-textarea form-control" })
-                            @Html.ValidationMessageFor(model => model.FelonyExplanation, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-6">
-                        <label>Do you have a Driving License?</label>
-                        @Html.ValidationMessageFor(model => model.HasDrivingLicense, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col">
-                        <!-- Default inline 1-->
-                        <div class="custom-control custom-radio custom-control-inline">
-
-                            <input type="radio" class="custom-control-input" id="HasDrivingLicenseYes" name="HasDrivingLicense" required>
-                            <label class="custom-control-label" for="HasDrivingLicenseYes">
-                                Yes
-                            </label>
-                        </div>
-                        <!-- Default inline 2-->
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="HasDrivingLicenseNo" name="HasDrivingLicense">
-                            <label class="custom-control-label" for="HasDrivingLicenseNo">
-                                No
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="NoDL_Acknowledgement">
-                            <label class="custom-control-label" for="NoDL_Acknowledgement">
-                                I understand that as a result of not having a valid driver’s license, I am not permitted to operate my personal vehicle for company business or drive a company vehicle at any time.
-                            </label>
-
-                            @Html.ValidationMessageFor(model => model.NoDL_Acknowledgement, "", new { @class = "text-danger" })
-                        </div>
-
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="card-footer">
-
-            </div>
-        </div>
-        <hr />
-        <div class="card">
-            <div class="card-header">
-                Employee Details
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-8">
-                                <label>Have you ever been in the Armed Forces?</label>
-                                @Html.ValidationMessageFor(model => model.ArmedForces, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                             </div>
-                            <div class="col">
-                                <!-- Default inline 1-->
-                                <div class="custom-control custom-radio custom-control-inline">
+                        </div>
+                        <div class="col">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
 
-                                    <input type="radio" class="custom-control-input" id="ArmedForcesYes" name="ArmedForces" value="Yes" required>
-                                    <label class="custom-control-label" for="ArmedForcesYes">
-                                        Yes
-                                    </label>
-                                </div>
-                                <!-- Default inline 2-->
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input" id="ArmedForcesNo" value="No" name="ArmedForces">
-                                    <label class="custom-control-label" for="ArmedForcesNo">
-                                        No
-                                    </label>
-                                </div>
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <select class="custom-select custom-select-sm" name="AFBranch" id="AFBranch">
-                                <option selected disabled>Armed Forces Branch</option>
-                                <option value="Army">Army</option>
-                                <option value="Air Force">Air Force</option>
-                                <option value="Coast Guard">Coast Guard</option>
-                                <option value="Marine Corps">Marine Corps</option>
-                                <option value="Navy">Navy</option>
-                            </select>
-                            @*@Html.EditorFor(model => model.AFBranch, new { htmlAttributes = new { @class = "form-control" } })*@
-                            @Html.ValidationMessageFor(model => model.AFBranch, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.MaidenName, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.MaidenName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaidenName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.SSN, "Social Security Number", htmlAttributes: new { @class = "control-label " })
+
+                                @Html.EditorFor(model => model.SSN, new { htmlAttributes = new { @class = "form-control ssnmask" } })
+                                @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.TextBoxFor(model => model.BirthDate, new { htmlAttributes = new { @class = "datepicker" } })
+                                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <div class="clearfix">
 
-                <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-8">
-                                <label>Are you a member of the National Guard?</label>
-                                @Html.ValidationMessageFor(model => model.NationalGuard, "", new { @class = "text-danger" })
+                        <a class="btn waves-effect waves-light btn-small  nextForm">Next <i class="fas fa-forward"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <!--Home Address-->
+        <fieldset id="homeAddress">
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">2. Home Address</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.Address_1, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.Address_1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address_1, "", new { @class = "text-danger" })
                             </div>
-                            <div class="col">
-                                <!-- Default inline 1-->
-                                <div class="custom-control custom-radio custom-control-inline">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.Address_2, htmlAttributes: new { @class = "control-label" })
 
-                                    <input type="radio" class="custom-control-input" id="NationalGuardYes" name="NationalGuard" value="Yes" required>
-                                    <label class="custom-control-label" for="NationalGuardYes">
-                                        Yes
-                                    </label>
+                                @Html.EditorFor(model => model.Address_2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address_2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+
+                                <div class="input-field s12">
+                                    <select id="State" name="State">
+                                        <option value="" disabled selected>Choose Home State</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                    @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label" })
+
+
                                 </div>
-                                <!-- Default inline 2-->
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input" id="NationalGuardNo" name="NationalGuard" value="No">
-                                    <label class="custom-control-label" for="NationalGuardNo">
-                                        No
-                                    </label>
-                                </div>
+
+                                @*@Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.TimeAtAddr, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.TimeAtAddr, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TimeAtAddr, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.CellPhone, htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.CellPhone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CellPhone, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
 
                 </div>
-
-                <div class="row">
-                    <div class="col">
-                        <div class="md-form">
-                            @Html.LabelFor(model => model.NationalGuardSpecialty, "National Guard Specialty", htmlAttributes: new { @class = "control-label" })
-
-                            @Html.EditorFor(model => model.NationalGuardSpecialty, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.NationalGuardSpecialty, "", new { @class = "text-danger" })
-                        </div>
+                <div class="card-footer">
+                    <div class="clearfix">
+                        <a class="btn waves-effect waves-light btn-small previousForm"><i class=" fas fa-backward"></i> Previous</a>
+                        <a class="btn waves-effect waves-light btn-small  nextForm">Next <i class="fas fa-forward"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
 
-            </div>
-        </div>
-        <hr />
-        <div class="card">
-            <div class="card-header">
-                Previous Employee
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <label>Is this your <b>First Employment or Job</b>?</label>
-                        @Html.ValidationMessageFor(model => model.IsFirstEmployment, "", new { @class = "text-danger" })
+        </fieldset>
+
+        <!--Felony conviction-->
+        <fieldset id="drivingLicense">
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">3. Driving License </span>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <label>Do you have a Driving License?</label>
+                            @Html.ValidationMessageFor(model => model.HasDrivingLicense, "", new { @class = "text-danger" })
+                            <a class="text-warning" data-toggle="modal" data-target="#DriversLicenseModal" title="Click to View/Edit saved Driver's License.">
+                                <i class="fas fa-address-card"></i>
+                            </a>
+                        </div>
+                        <div class="col-md">
+                            <!-- Default inline 1-->
+                            <div class="custom-control custom-radio custom-control-inline">
+
+                                <input type="radio" class="custom-control-input" id="HasDrivingLicenseYes" name="HasDrivingLicense" value="Yes">
+                                <label class="custom-control-label" for="HasDrivingLicenseYes">
+                                    Yes
+                                </label>
+                            </div>
+                            <!-- Default inline 2-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="HasDrivingLicenseNo" name="HasDrivingLicense" value="No">
+                                <label class="custom-control-label" for="HasDrivingLicenseNo">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col">
-                        <!-- Default inline 1-->
-                        <div class="custom-control custom-radio custom-control-inline">
 
-                            <input type="radio" class="custom-control-input" id="IsFirstEmploymentYes" name="IsFirstEmployment" value="Yes" required>
-                            <label class="custom-control-label" for="IsFirstEmploymentYes">
-                                Yes
+                    <div class="row" style="display:none" id="DLAcknowledgement">
+
+                        <div class="col">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="NoDL_Acknowledgement">
+                                <label class="custom-control-label" for="NoDL_Acknowledgement">
+                                    I understand that as a result of not having a valid driver’s license, I am not permitted to operate my personal vehicle for company business or drive a company vehicle at any time.
+                                </label>
+
+                                @Html.ValidationMessageFor(model => model.NoDL_Acknowledgement, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <div class="clearfix">
+                        <a class="btn waves-effect waves-light  previousForm"><i class=" fas fa-backward"></i> Previous</a>
+                        <a class="btn waves-effect waves-light  nextForm">Next <i class="fas fa-forward"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </fieldset>
+
+        <!--Military Service-->
+        <fieldset id="militaryService">
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">4. Military Service</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <label>Have you ever been in the Armed Forces?</label>
+                                    @Html.ValidationMessageFor(model => model.ArmedForces, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md">
+                                    <!-- Default inline 1-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+
+                                        <input type="radio" class="custom-control-input" id="ArmedForcesYes" name="ArmedForces" value="Yes" required>
+                                        <label class="custom-control-label" for="ArmedForcesYes">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <!-- Default inline 2-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="ArmedForcesNo" value="No" name="ArmedForces">
+                                        <label class="custom-control-label" for="ArmedForcesNo">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-field col s12 ">
+                          
+                                <select name="AFBranch" id="AFBranch">
+                                    <option selected disabled>Armed Forces Branch</option>
+                                    <option value="Army">Army</option>
+                                    <option value="Air Force">Air Force</option>
+                                    <option value="Coast Guard">Coast Guard</option>
+                                    <option value="Marine Corps">Marine Corps</option>
+                                    <option value="Navy">Navy</option>
+                                </select>
+                                @*@Html.EditorFor(model => model.AFBranch, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.AFBranch, "", new { @class = "text-danger" })
+                          
+                        </div>
+                       
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <label>Are you a member of the National Guard?</label>
+                                    @Html.ValidationMessageFor(model => model.NationalGuard, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md">
+                                    <!-- Default inline 1-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+
+                                        <input type="radio" class="custom-control-input" id="NationalGuardYes" name="NationalGuard" value="Yes" required>
+                                        <label class="custom-control-label" for="NationalGuardYes">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <!-- Default inline 2-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="NationalGuardNo" name="NationalGuard" value="No">
+                                        <label class="custom-control-label" for="NationalGuardNo">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.NationalGuardSpecialty, "National Guard Specialty", htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.NationalGuardSpecialty, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NationalGuardSpecialty, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Felony Conviction-->
+                    <div class="row ">
+
+                        <div class="col-md-8">
+                            <label> Have ever been convicted of Felony or Misdemeanor ?</label>
+                        </div>
+                        <div class="col-md">
+                            <!-- Default inline 1-->
+                            <div class="custom-control custom-radio custom-control-inline">
+
+                                <input type="radio" class="custom-control-input" id="rbYes" name="Felony" required>
+                                <label class="custom-control-label" for="rbYes">
+                                    Yes
+                                </label>
+                            </div>
+                            <!-- Default inline 2-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="rbNo" name="Felony">
+                                <label class="custom-control-label" for="rbNo">
+                                    No
+                                </label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+
+                                @Html.TextAreaFor(model => model.FelonyExplanation, new { @class = "materialize-textarea" })
+                                @Html.LabelFor(model => model.FelonyExplanation, htmlAttributes: new { @class = "control-label" })
+                                @Html.ValidationMessageFor(model => model.FelonyExplanation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="clearfix">
+                        <a class="btn waves-effect waves-light  previousForm"><i class=" fas fa-backward"></i> Previous</a>
+                        <a class="btn waves-effect waves-light  nextForm">Next <i class="fas fa-forward"></i></a>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!--Skills Background-->
+        <fieldset id="skillBackground">
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">5. Skill Background</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>1.</b> Have you ever worked for this company?</label>
+                            @Html.ValidationMessageFor(model => model.ArmedForces, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md">
+                            <!-- Default inline 1-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="IsPrevEmployeeYes" name="IsPrevEmployee" value="Yes" required>
+                                <label class="custom-control-label" for="IsPrevEmployeeYes">
+                                    Yes
+                                </label>
+                            </div>
+                            <!-- Default inline 2-->
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="IsPrevEmployeeNo" value="No" name="IsPrevEmployee">
+                                <label class="custom-control-label" for="IsPrevEmployeeNo">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.PrevEmployeeDetails, "If Yes, write down Job, dates and the foreman you worked for.", htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.PrevEmployeeDetails, new { htmlAttributes = new { @class = "form-control" } })
+
+                                @Html.ValidationMessageFor(model => model.PrevEmployeeDetails, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>2.</b> Do you current keep any <b>Special License</b> or <b>Certifications</b> or extra training on <b>Equipments</b> pertaining to the industry?</label>
+                            @Html.ValidationMessageFor(model => model.HasSpecialLicense, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" name="HasSpecialLicense" id="HasSpecialLicenseYes" value="Yes" />
+                                <label for="HasSpecialLicenseYes" class="custom-control-label">Yes</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" name="HasSpecialLicense" id="HasSpecialLicenseNo" value="No" />
+                                <label for="HasSpecialLicenseNo" class="custom-control-label">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.SpecialLicDetails, "If Yes, describe", htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.SpecialLicDetails, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SpecialLicDetails, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="clearfix">
+                        <a class="btn waves-effect waves-light previousForm"><i class=" fas fa-backward"></i> Previous</a>
+                        <a class="btn waves-effect waves-light nextForm">Next <i class="fas fa-forward"></i></a>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!--Previous Employers-->
+        <fieldset id="previousEmployers">
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">6. Previous Employers</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <input type="hidden" id="prevemployersCount" name="prevemployersCount" value="0" />
+
+
+                            <a class="btn  btn-small waves-effect waves-light red pulse" title="Click to add Previous Employer Details">
+                                <i class="fas fa-plus"></i> Add Previous Employer
+                            </a>
+                            <table class="table table-sm table-responsive-sm">
+                                @*<caption>List of Previous Employers</caption>*@
+                                <caption>List of Previous Employers</caption>
+                                <thead class="thead-light">
+
+                                    <tr>
+                                        <th>Employer Name</th>
+                                        <th>Business Address</th>
+                                        <th>From Date</th>
+                                        <th>To Date</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="5"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+
+                            <label for="IsFirstEmployment">
+                                <input type="checkbox" name="IsFirstEmployment" id="IsFirstEmployment" value="" class="filled-in" />
+                                <span>Check this box if this is your first employment or Job.</span>
                             </label>
-                        </div>
-                        <!-- Default inline 2-->
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="IsFirstEmploymentNo" name="IsFirstEmployment" value="No">
-                            <label class="custom-control-label" for="IsFirstEmploymentNo">
-                                No
-                            </label>
+
                         </div>
                     </div>
+
+
+
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <input type="hidden" id="prevemployersCount" name="prevemployersCount" value="0" />
-                        <a class="btn btn-sm btn-danger fa-pull-right" title="Add Previous Employer Details"  data-toggle="modal" data-target="#prevEmployerModal">
-                            <i class="fas fa-plus"></i> Add
-                        </a>
-                        <table class="table table-sm ">
-                            @*<caption>List of Previous Employers</caption>*@
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Employer Name</th>
-                                    <th>Business Address</th>
-                                    <th>From Date</th>
-                                    <th>To Date</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                <div class="card-footer">
+                    <div class="clearfix">
+                        <a class="btn btn-small waves-effect waves-light previousForm"><i class=" fas fa-backward"></i> Previous</a>
+                        <a class="btn btn-small waves-effect waves-light nextForm">Next <i class="fas fa-forward"></i></a>
                     </div>
                 </div>
+            </div>
+        </fieldset>
+
+        <!-- Review/Acknowledgement-->
+        <fieldset id="acknowledgements">
+            <div class="card">
+                <div class="card-header">
+                    <span class="h5">7. Acknowledgement/Review</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label>May we contact your past employers?</label>
+                        </div>
+                        <div class="col-md">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" name="ContactPrevEmployer" id="ContactPrevEmployerYes" value="Yes" />
+                                <label for="ContactPrevEmployerYes" class="custom-control-label">Yes</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" name="ContactPrevEmployer" id="ContactPrevEmployerNo" value="No" />
+                                <label for="ContactPrevEmployerNo" class="custom-control-label">No</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.LabelFor(model => model.IsSelf_CompletedApp, "Did you complete tis application yourself ?", htmlAttributes: new { @class = "control-label" })
+
+                            @Html.ValidationMessageFor(model => model.IsSelf_CompletedApp, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" name="IsSelf_CompletedApp" id="IsSelf_CompletedAppYes" value="Yes" />
+                                <label for="IsSelf_CompletedAppYes" class="custom-control-label">Yes</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" name="IsSelf_CompletedApp" id="IsSelf_CompletedAppNo" value="No" />
+                                <label for="IsSelf_CompletedAppNo" class="custom-control-label">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                @Html.LabelFor(model => model.AppCompletedBy, "If Not, who did?", htmlAttributes: new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.AppCompletedBy, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AppCompletedBy, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="clearfix">
+                        <a class="btn btn-small waves-effect waves-light previousForm"><i class=" fas fa-backward"></i> Previous</a>
+                        <a class="btn btn-small btn-primary  saveForm">Save and Continue <i class="fas fa-forward"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+</form>
+
+<!--Previous Employers Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="PreviousEmployersModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Previous Employer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="PreviousEmployersModalBody">
 
             </div>
-        </div>
-
-
-
-
-
-
-
-
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.IsPrevEmployee, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.IsPrevEmployee, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.IsPrevEmployee, "", new { @class = "text-danger" })
-        </div>
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.PrevEmployeeDetails, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.PrevEmployeeDetails, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.PrevEmployeeDetails, "", new { @class = "text-danger" })
-        </div>
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.HasSpecialLicense, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.HasSpecialLicense, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HasSpecialLicense, "", new { @class = "text-danger" })
-        </div>
-
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.SpecialLicDetails, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.SpecialLicDetails, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SpecialLicDetails, "", new { @class = "text-danger" })
-        </div>
-
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.ContactPrevEmployer, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.ContactPrevEmployer, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ContactPrevEmployer, "", new { @class = "text-danger" })
-        </div>
-
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.IsSelf_CompletedApp, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.IsSelf_CompletedApp, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.IsSelf_CompletedApp, "", new { @class = "text-danger" })
-        </div>
-
-
-        <div class="md-form">
-            @Html.LabelFor(model => model.AppCompletedBy, htmlAttributes: new { @class = "control-label" })
-
-            @Html.EditorFor(model => model.AppCompletedBy, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AppCompletedBy, "", new { @class = "text-danger" })
-
-        </div>
-
-        <div class="md-form">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
-}
+</div>
 
-<!--Previous Employers Modal -->
-    <div class="modal fade" id="prevEmployerModal" tabindex="-1" role="dialog" aria-labelledby="prevEmployerLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="prevEmployerLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input name="__RequestVerificationToken" type="hidden" value="f39JIJmSTBaz0VxfSVj2B8ZPK_hevxuGEpmkgZADPQqtC6rkp1i9TzLhaM-JLyj-9XIIL56WDH4vE539W-NmxyNB81KvA8XAUpe5yJdSy801">    <div class="form-horizontal">
-                            <h4>DriversLicense</h4>
-                            <hr>
+<!--Drivers License Modal-->
+<div class="modal fade" id="DriversLicenseModal" tabindex="-1" role="dialog" aria-labelledby="DriversLicenseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="h4">Driver's License</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="DrivingLicense" name="DrivingLicense">
+                    <input name="__RequestVerificationToken" type="hidden" value="f39JIJmSTBaz0VxfSVj2B8ZPK_hevxuGEpmkgZADPQqtC6rkp1i9TzLhaM-JLyj-9XIIL56WDH4vE539W-NmxyNB81KvA8XAUpe5yJdSy801">
 
-                            <div class="md-form">
-                                <label class="control-label " for="AppID">AppID</label>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
+                                <label class="control-label " for="DL_Number">License Number</label>
 
-                                <input class="form-control " data-val="true" data-val-number="The field AppID must be a number." id="AppID" name="AppID" type="number" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="AppID" data-valmsg-replace="true"></span>
-
-                            </div>
-
-                            <div class="md-form">
-                                <label class="control-label " for="DL_Number">DL_Number</label>
-
-                                <input class="form-control " id="DL_Number" name="DL_Number" type="text" value="">
+                                <input class="form-control text-uppercase" id="DL_Number" name="DL_Number" type="text" value="" maxlength="16">
                                 <span class="field-validation-valid text-danger" data-valmsg-for="DL_Number" data-valmsg-replace="true"></span>
 
                             </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+                                <label class="control-label " for="DL_ExpirationDate">Expiration Date</label>
 
-                            <div class="md-form">
-                                <label class="control-label " for="DL_State">DL_State</label>
-
-                                <input class="form-control " id="DL_State" name="DL_State" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="DL_State" data-valmsg-replace="true"></span>
-
-                            </div>
-
-                            <div class="md-form">
-                                <label class="control-label " for="DL_Type">DL_Type</label>
-
-                                <input class="form-control " id="DL_Type" name="DL_Type" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="DL_Type" data-valmsg-replace="true"></span>
-
-                            </div>
-
-                            <div class="md-form">
-                                <label class="control-label " for="DL_ExpirationDate">DL_ExpirationDate</label>
-
-                                <input class="form-control " data-val="true" data-val-date="The field DL_ExpirationDate must be a date." data-val-required="The DL_ExpirationDate field is required." id="DL_ExpirationDate" name="DL_ExpirationDate" type="datetime" value="">
+                                <input class="form-control dateFormat" data-val="true" data-val-date="Provide a valid expiration date."
+                                       data-val-required="Provide a valid expiration date." id="DL_ExpirationDate" name="DL_ExpirationDate" type="text" value="">
                                 <span class="field-validation-valid text-danger" data-valmsg-for="DL_ExpirationDate" data-valmsg-replace="true"></span>
 
                             </div>
 
-                            <div class="md-form">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md">
+                            <div class="input-field">
+                                @*<label for="DL_Type" class="container">License State</label>*@
+                                <select id="DL_State" name="DL_State" class="form-control" required>
+                                    <option selected disabled>Select State</option>
+                                </select>
+
+                                <span class="field-validation-valid text-danger" data-valmsg-for="DL_State" data-valmsg-replace="true"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-field">
+                                @*<label for="DL_Type">License Type</label>*@
+                                <select class="form-control " id="DL_Type" name="DL_Type">
+                                    <option selected disabled>Select Type</option>
+                                    <option value="Chauffeur">Chauffeur</option>
+                                    <option value="CDL">Commercial-CDL</option>
+                                    <option value="Operator">Operator</option>
+
+                                </select>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="DL_Type" data-valmsg-replace="true"></span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="input-field">
                                 <label class="control-label " for="Notes">Notes</label>
-
-                                <input class="form-control " id="Notes" name="Notes" type="text" value="">
+                                <input class="form-control " id="Notes" name="Notes" type="text" value="" rows="2" />
                                 <span class="field-validation-valid text-danger" data-valmsg-for="Notes" data-valmsg-replace="true"></span>
-
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="md-form">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <span class="waves-input-wrapper waves-effect waves-light"><input type="submit" value="Create" class="btn btn-default"></span>
-
-                                </div>
-                            </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-secondary btn-sm " data-dismiss="modal" value="Close" />
+                <input type="button" class="btn btn-success  btn-sm" value="Save" />
             </div>
         </div>
     </div>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
-        $(document).ready(() => {
-            $("[name='ArmedForces']").change(() => {
-                var selection = $("input[name='ArmedForces']:checked").val();
-                alert(selection);
-            });
 
-        });
-    </script>
+    <script src="~/appjs/applicationform.js"></script>
+
 }
